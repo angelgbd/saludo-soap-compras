@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by XML-WS Runtime (https://github.com/eclipse-ee4j/metro-jax-ws). Runtime's version is XML-WS Runtime 4.0.2 git-revision#0264419. --><xs:schema xmlns:tns="http://soap.ejemplo.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://soap.ejemplo.com/">
+
+<xs:element name="obtenerCatalogo" type="tns:obtenerCatalogo"></xs:element>
+
+<xs:element name="obtenerCatalogoResponse" type="tns:obtenerCatalogoResponse"></xs:element>
+
+<xs:element name="procesarCarrito" type="tns:procesarCarrito"></xs:element>
+
+<xs:element name="procesarCarritoResponse" type="tns:procesarCarritoResponse"></xs:element>
+
+<xs:element name="saludar" type="tns:saludar"></xs:element>
+
+<xs:element name="saludarResponse" type="tns:saludarResponse"></xs:element>
+
+<xs:element name="sumar" type="tns:sumar"></xs:element>
+
+<xs:element name="sumarResponse" type="tns:sumarResponse"></xs:element>
+
+<xs:complexType name="obtenerCatalogo">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerCatalogoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:producto" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="producto">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="precio" type="xs:double"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sumar">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"></xs:element>
+<xs:element name="arg1" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sumarResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="saludar">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="saludarResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="procesarCarrito">
+<xs:sequence>
+<xs:element name="carrito" type="tns:itemCarrito" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="itemCarrito">
+<xs:sequence>
+<xs:element name="productoId" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="cantidad" type="xs:int"></xs:element>
+<xs:element name="precio" type="xs:double"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="procesarCarritoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:resultadoPedido" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="resultadoPedido">
+<xs:sequence>
+<xs:element name="exitoso" type="xs:boolean"></xs:element>
+<xs:element name="mensaje" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
